@@ -1,0 +1,61 @@
+{
+  "agents": {
+    "defaults": {
+      "model": {
+        "primary": "anthropic/claude-opus-4-6",
+        "fallbacks": [
+          "anthropic/claude-sonnet-4-6",
+          "google/gemini-2.5-pro"
+        ]
+      },
+      "models": {
+        "anthropic/claude-opus-4-6": { "alias": "opus", "params": { "cacheRetention": "short" } },
+        "google/gemini-2.5-flash": { "alias": "flash" },
+        "google/gemini-2.5-pro": { "alias": "pro" }
+      },
+      "workspace": "~/.openclaw/workspace",
+      "bootstrapMaxChars": 40000,
+      "contextTokens": 1000000,
+      "memorySearch": {
+        "enabled": true,
+        "sources": ["memory", "sessions"],
+        "provider": "gemini"
+      },
+      "heartbeat": {
+        "every": "30m",
+        "model": "google/gemini-2.5-flash"
+      },
+      "subagents": {
+        "maxSpawnDepth": 2,
+        "maxConcurrent": 8,
+        "model": {
+          "primary": "anthropic/claude-sonnet-4-20250514",
+          "fallbacks": ["anthropic/claude-haiku-3.5-20241022"]
+        },
+        "runTimeoutSeconds": 300
+      },
+      "compaction": {
+        "mode": "safeguard",
+        "maxHistoryShare": 0.75,
+        "postCompactionSections": ["SOUL.md", "IDENTITY.md", "USER.md", "AGENTS.md", "TOOLS.md"],
+        "memoryFlush": {
+          "enabled": true,
+          "softThresholdTokens": 800000
+        }
+      }
+    }
+  },
+  "channels": {
+    "slack": {
+      "mode": "socket",
+      "enabled": true,
+      "dmPolicy": "allowlist",
+      "groupPolicy": "allowlist"
+    }
+  },
+  "gateway": {
+    "mode": "local",
+    "bind": "loopback",
+    "auth": { "mode": "token" }
+  }
+}

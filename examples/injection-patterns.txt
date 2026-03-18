@@ -1,0 +1,34 @@
+# Prompt Injection Detection Patterns
+# One regex per line.  Lines starting with # are comments.
+# These patterns are checked against all external content before it reaches the agent.
+
+# Role-switching attempts
+(?i)ignore\s+(all\s+)?previous\s+instructions
+(?i)you\s+are\s+now\s+(a|an)\s+
+(?i)forget\s+(everything|all|your)\s+(you|instructions|rules)
+(?i)new\s+instructions?\s*:
+(?i)system\s*prompt\s*:
+(?i)override\s+(your|the)\s+(instructions|rules|prompt)
+
+# Extraction attempts
+(?i)repeat\s+(the|your)\s+(system|initial)\s+(prompt|instructions|message)
+(?i)show\s+me\s+(your|the)\s+(system|initial)\s+prompt
+(?i)what\s+(are|were)\s+your\s+(original|initial|system)\s+instructions
+(?i)print\s+(your|the)\s+(system|initial)\s+prompt
+
+# Injection via formatting
+(?i)\[system\]
+(?i)\[assistant\]
+(?i)<\s*system\s*>
+(?i)```\s*system
+
+# Data exfiltration
+(?i)send\s+(all|this|the)\s+(data|information|content)\s+to
+(?i)forward\s+(this|all)\s+to\s+
+(?i)email\s+(this|all|everything)\s+to
+
+# Encoded payloads
+(?i)base64\s*:\s*[A-Za-z0-9+/=]{20,}
+(?i)eval\s*\(
+(?i)<script
+(?i)javascript\s*:
