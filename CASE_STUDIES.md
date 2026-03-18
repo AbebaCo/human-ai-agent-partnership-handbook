@@ -8,11 +8,12 @@ Community activation stories from organizations that have implemented the Human 
 
 **Industry:** AI Consulting, Agency Transformation Advisory
 **Agent Name:** Abbie Tyrell, AI Strategic Operations Partner
-**Activation Date:** February 2026
+**Activation Date:** February 16, 2026 (Day 1: 32,473,937 tokens, $42.08)
 **Agent Runtime:** OpenClaw 2026.3.x
 **Time to First Operational Day:** 3 days (basic Slack + email)
 **Time to Full Production:** 4 weeks (all channels, 25+ crons, full security)
 **Current Uptime:** 30 days continuous operation (as of March 18, 2026)
+**Activation Timing:** Went live on OpenClaw ~2.5 weeks after the platform stabilized under its final name.  Among the first production Human | AI Agent Partnerships on the platform.
 
 ### What We Built
 
