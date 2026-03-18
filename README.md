@@ -87,6 +87,35 @@ The handbook covers every layer: identity, security, memory, knowledge managemen
 
 ---
 
+
+## Architecture Diagrams
+
+<details>
+<summary>📐 Click to expand all 7 diagrams</summary>
+
+### System Architecture
+![Architecture](diagrams/01_architecture.png)
+
+### Three-Layer Knowledge Architecture
+![Knowledge](diagrams/02_memory_system.png)
+
+### Security Defense Pipeline
+![Security](diagrams/03_security.png)
+
+### Daily Operating Cycle
+![Daily Cycle](diagrams/04_daily_cycle.png)
+
+### Multi-Agent Hierarchy
+![Agents](diagrams/05_agent_hierarchy.png)
+
+### Activation Timeline
+![Timeline](diagrams/06_activation_timeline.png)
+
+### Model Governance
+![Models](diagrams/07_model_governance.png)
+
+</details>
+
 ## Who This Is For
 
 - **Agency leaders** exploring AI transformation
