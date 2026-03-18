@@ -56,6 +56,9 @@ human-ai-agent-partnership-handbook/
 |   |-- gateway-config.json      # Sample OpenClaw gateway config
 |   |-- injection-patterns.txt   # Starter prompt injection regex patterns
 |
+|-- concepts/                   # Companion essays and frameworks
+|   |-- BOUNDED_HARNESS.md       # Why constraints create capability (the philosophical foundation)
+|
 |-- CONTRIBUTING.md              # How to submit your activation story
 |-- CASE_STUDIES.md              # Community activation stories
 ```
@@ -87,6 +90,18 @@ The handbook covers every layer: identity, security, memory, knowledge managemen
 
 ---
 
+
+
+## Companion Reading: The Bounded Harness
+
+> "The model is 20% of the value.  The operating environment is 80%."
+
+The [Bounded Harness](concepts/BOUNDED_HARNESS.md) is the philosophical foundation behind this handbook.  It explains why constrained, measured, reversible agent tasks outperform open-ended freedom, drawing on Karpathy's Autoresearch and our own production experience.
+
+Every chapter in the handbook is a component of the Bounded Harness.  The handbook is the practical implementation.  The Bounded Harness is the *why*.
+
+Read the full essay: [concepts/BOUNDED_HARNESS.md](concepts/BOUNDED_HARNESS.md)
+Blog post: [abeba.co/blog/bounded-harness](https://www.abeba.co/blog/bounded-harness)
 
 ## Architecture Diagrams
 
