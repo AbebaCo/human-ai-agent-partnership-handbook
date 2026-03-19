@@ -20,10 +20,16 @@ The Human | AI Agent Partnership gives one person the operational capacity of te
 
 ## Quick Start
 
-1. **[Download the Handbook (PDF)](handbook/Human_AI_Agent_Partnership_Handbook_FINAL.pdf)** -- The complete 35-page implementation guide.
+1. **[Download the Handbook (PDF)](handbook/Human_AI_Agent_Partnership_Handbook_V3.pdf)** -- The complete 35-page implementation guide.
+|   |
+|   |-- archive/                 # Previous versions
+|   |   |-- Human_AI_Agent_Partnership_Handbook_V2_FINAL.pdf
 2. **Copy the [templates/](templates/)** directory into your private ops repo.
 3. **Customize each `.md` file** for your organization.
-4. **Follow the [Activation Checklist](handbook/Human_AI_Agent_Partnership_Handbook_FINAL.pdf)** (Chapter 13) -- 5 phases, 5 weeks.
+4. **Follow the [Activation Checklist](handbook/Human_AI_Agent_Partnership_Handbook_V3.pdf)** (Chapter 13) -- 5 phases, 5 weeks.
+|   |
+|   |-- archive/                 # Previous versions
+|   |   |-- Human_AI_Agent_Partnership_Handbook_V2_FINAL.pdf
 
 Or visit **[abeba.co/handbook](https://www.abeba.co/handbook)** for the full handbook with advisory support.
 
@@ -38,7 +44,10 @@ human-ai-agent-partnership-handbook/
 |-- LICENSE
 |
 |-- handbook/                    # The complete handbook
-|   |-- Human_AI_Agent_Partnership_Handbook_FINAL.pdf
+|   |-- Human_AI_Agent_Partnership_Handbook_V3.pdf
+|   |
+|   |-- archive/                 # Previous versions
+|   |   |-- Human_AI_Agent_Partnership_Handbook_V2_FINAL.pdf
 |
 |-- templates/                   # Production-ready starter files (Chapter 16, Addendum A)
 |   |-- SOUL.md                  # Agent personality and boundaries
