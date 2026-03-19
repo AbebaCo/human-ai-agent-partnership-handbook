@@ -11,3 +11,9 @@ Visual architecture references from the handbook.  High-resolution PNG files.
 | [05_agent_hierarchy.png](05_agent_hierarchy.png) | Chapter 11 | Multi-agent architecture: primary, sub-agents, specialized agents |
 | [06_activation_timeline.png](06_activation_timeline.png) | Chapter 13 | 5-phase activation schedule from foundation to production |
 | [07_model_governance.png](07_model_governance.png) | Chapter 7 | Model tiering and multi-provider fallback chain |
+
+## Version 3.0 Additions
+
+| File | Chapter | Description |
+|------|---------|-------------|
+| [08_trust_layer.png](08_trust_layer.png) | Chapter 2.3 | Enterprise Trust Layer: four-principle governance model (policy, credentials, inference routing, defense in depth) |

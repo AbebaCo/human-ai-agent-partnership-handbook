@@ -1,0 +1,144 @@
+# SECURITY_POLICY.yaml — Agent Governance Policy Template
+# Human | AI Agent Partnership Handbook, Section 2.3
+#
+# This file defines the four-layer governance boundary for your AI agent.
+# Review quarterly or when adding new integrations.
+# Reference: NVIDIA OpenShell policy model (github.com/NVIDIA/OpenShell)
+
+# ═══════════════════════════════════════════════════════════
+# PRINCIPLE 1: FILESYSTEM SCOPE
+# Define what the agent can read and write.
+# Everything not listed is denied.
+# ═══════════════════════════════════════════════════════════
+filesystem:
+  read:
+    - ~/.openclaw/workspace/          # Agent workspace (full access)
+    - ~/.openclaw/workspace/memory/   # Memory system
+    - /tmp/                           # Temporary working files
+  write:
+    - ~/.openclaw/workspace/          # Workspace writes
+    - ~/.openclaw/workspace/memory/   # Memory writes
+    - /tmp/                           # Temp files
+  denied:
+    - ~/Documents/                    # Personal files
+    - ~/Downloads/                    # Downloads
+    - ~/.ssh/                         # SSH keys
+    - ~/.gnupg/                       # GPG keys
+    - /etc/                           # System config
+
+# ═══════════════════════════════════════════════════════════
+# PRINCIPLE 2: NETWORK SCOPE
+# Define which APIs the agent can call and at what permission level.
+# Format: host, allowed methods, purpose.
+# ═══════════════════════════════════════════════════════════
+network:
+  allowed:
+    # Communication
+    - host: "*.slack.com"
+      methods: [GET, POST]
+      purpose: "Slack messaging and events"
+
+    - host: "gmail.googleapis.com"
+      methods: [GET, POST]
+      purpose: "Email read and send"
+
+    # CRM
+    - host: "api.hubapi.com"
+      methods: [GET, POST, PATCH]
+      purpose: "HubSpot CRM read and write"
+
+    # AI Providers (cloud inference)
+    - host: "api.anthropic.com"
+      methods: [POST]
+      purpose: "Frontier model inference (Opus, Sonnet)"
+
+    - host: "generativelanguage.googleapis.com"
+      methods: [POST]
+      purpose: "Google model inference (Flash, Pro)"
+
+    - host: "api.openai.com"
+      methods: [POST]
+      purpose: "OpenAI model inference and embeddings"
+
+    # Code and version control
+    - host: "api.github.com"
+      methods: [GET, POST, PATCH]
+      purpose: "GitHub API for repos, PRs, issues"
+
+    - host: "github.com"
+      methods: [GET, POST]
+      purpose: "Git push/pull operations"
+
+    # Knowledge
+    - host: "*.googleapis.com"
+      methods: [GET]
+      purpose: "Google Drive and Docs read access"
+
+  denied:
+    - host: "*"
+      note: "All hosts not explicitly listed above are denied"
+
+# ═══════════════════════════════════════════════════════════
+# PRINCIPLE 3: CREDENTIAL HANDLING
+# Define how API keys and secrets are managed.
+# Goal: credentials never on disk in plaintext.
+# ═══════════════════════════════════════════════════════════
+credentials:
+  storage: "env_file"               # Options: env_file, secret_manager, vault
+  env_file: ".env"                  # Relative to workspace root
+  rotation_policy: "quarterly"      # How often to rotate keys
+  audit_schedule: "nightly"         # When to scan for leaked secrets
+  rules:
+    - "Credentials MUST NOT appear in git history"
+    - "Credentials MUST NOT be logged to event-log.jsonl"
+    - "Credentials MUST NOT be included in agent memory files"
+    - "Outbound messages MUST be scanned for credential patterns before send"
+
+# ═══════════════════════════════════════════════════════════
+# PRINCIPLE 4: INFERENCE ROUTING
+# Define which queries go to cloud vs. local models.
+# Reference: Section 2.3 Privacy-Aware Inference Routing.
+# ═══════════════════════════════════════════════════════════
+inference:
+  routing_mode: "cloud_only"        # Options: cloud_only, hybrid, local_only
+
+  # Cloud routing (current default for most activations)
+  cloud:
+    provider: "anthropic"
+    model: "claude-opus-4-6"
+    use_for:
+      - "All human-facing communications"
+      - "Client work and strategy"
+      - "Complex reasoning and analysis"
+
+  # Local routing (future, when local models are deployed)
+  # Uncomment when activating local inference per Section 7.3.
+  # local:
+  #   provider: "ollama"            # or nvidia_nim
+  #   model: "nemotron-3-nano"
+  #   use_for:
+  #     - "Client PII processing"
+  #     - "Financial document analysis"
+  #     - "Proprietary strategy work"
+
+  # Classification rules
+  data_classification:
+    local_required:
+      - "Client PII (names, emails, phone numbers in client context)"
+      - "Financial records and projections"
+      - "Proprietary client strategy documents"
+    cloud_allowed:
+      - "General research and summarization"
+      - "Code generation"
+      - "Public information analysis"
+      - "Internal operational tasks"
+
+# ═══════════════════════════════════════════════════════════
+# REVIEW LOG
+# Track when this policy was last reviewed and by whom.
+# ═══════════════════════════════════════════════════════════
+review_log:
+  - date: "2026-03-19"
+    reviewer: "[Your Name]"
+    changes: "Initial policy creation"
+    next_review: "2026-06-19"

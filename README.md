@@ -179,3 +179,32 @@ This handbook and all templates are provided under the [MIT License](LICENSE).  
 ---
 
 **Prepared by [Abeba Co](https://www.abeba.co)**  //  michael@abeba.co  //  abbie@abeba.co
+
+---
+
+## Version History
+
+| Version | Date | Changes |
+|---------|------|---------|
+| 1.0 | March 2026 | Initial framework and architecture documentation |
+| 2.0 | March 2026 | Generalized handbook. Diagrams, tables, activation checklist. |
+| 2.1 | March 2026 | Preface (ROI), Quick-Start Card, Glossary, Addendum A (templates), Addendum B (repo mapping). |
+| **3.0** | **March 2026** | **Enterprise Trust Layer (Section 2.3): NVIDIA OpenShell reference architecture, four-principle governance framework.  Agency Language Model (Section 4.5).  Open Model Ecosystem (Section 7.3): Nemotron Coalition, local inference economics.  Agent Computer paradigm (Section 9.1).  Market-direction framing throughout.** |
+
+## New in Version 3.0
+
+The V3.0 update aligns the handbook with the enterprise agent infrastructure emerging from NVIDIA's GTC 2026 announcements.  All new content is framed as **market direction** — documenting the standard the industry is converging on, not claiming internal deployment of specific tools.
+
+**New sections:**
+- **2.3 Enterprise Trust Layer:** Four-principle governance model (declarative policy, credential isolation, inference routing, defense in depth)
+- **4.5 Agency Language Model:** Knowledge architecture as competitive advantage
+- **7.3 Open Model Ecosystem:** Nemotron Coalition, local inference economics, PinchBench
+- **9.1 Agent Computer Paradigm:** Dedicated hardware for always-on agents
+
+**New repo files:**
+- `templates/SECURITY_POLICY.yaml` — Four-layer governance policy template (referenced in Section 2.3)
+- `concepts/ENTERPRISE_TRUST_LAYER.md` — Companion essay on enterprise agent governance
+- `examples/cron-schedule.json` — Complete cron job definitions (referenced in Chapter 6)
+- `diagrams/08_trust_layer.png` — Enterprise Trust Layer visual
+
+**Blog post:** [The Agent Infrastructure Era: What NVIDIA's GTC 2026 Means for Service Businesses](https://www.abeba.co/blog/agent-infrastructure-era)

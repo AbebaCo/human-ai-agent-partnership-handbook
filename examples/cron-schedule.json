@@ -1,0 +1,66 @@
+{
+  "_comment": "Sample cron schedule for a Human | AI Agent Partnership activation. Handbook Chapter 6.",
+  "heartbeat": {
+    "schedule": "every 30m",
+    "model": "google/gemini-2.5-flash",
+    "description": "Autonomous operational pulse. Executes prioritized task list (Chapter 6.1)."
+  },
+  "crons": [
+    {
+      "name": "daily-briefing",
+      "schedule": "0 6 * * *",
+      "timezone": "America/New_York",
+      "model": "anthropic/claude-opus-4-6",
+      "description": "Voice briefing: overnight events, calendar, open items, scout findings."
+    },
+    {
+      "name": "email-triage",
+      "schedule": "0 8,11,14,17 * * 1-5",
+      "timezone": "America/New_York",
+      "model": "google/gemini-2.5-flash",
+      "description": "Scan all email accounts for unread client messages. Security scan, classify, route."
+    },
+    {
+      "name": "innovation-scout",
+      "schedule": "0 23 * * *",
+      "timezone": "America/New_York",
+      "model": "anthropic/claude-sonnet-4-6",
+      "description": "Nightly web research on industry trends. Auto-ingest findings to KB."
+    },
+    {
+      "name": "meta-cron",
+      "schedule": "0 9 * * *",
+      "timezone": "America/New_York",
+      "model": "google/gemini-2.5-flash",
+      "description": "Daily health check of all cron jobs. Auto-repair broken crons."
+    },
+    {
+      "name": "security-council",
+      "schedule": "0 1 * * *",
+      "timezone": "America/New_York",
+      "model": "google/gemini-2.5-flash",
+      "description": "Nightly security audit: permissions, gateway config, secret exposure scan."
+    },
+    {
+      "name": "memory-distillation",
+      "schedule": "0 3 * * */3",
+      "timezone": "America/New_York",
+      "model": "anthropic/claude-sonnet-4-6",
+      "description": "Every 3 days: distill daily logs into MEMORY.md long-term summary."
+    },
+    {
+      "name": "contact-harvester",
+      "schedule": "0 7 * * 1-5",
+      "timezone": "America/New_York",
+      "model": "google/gemini-2.5-flash",
+      "description": "Extract new contacts from email headers, cross-reference CRM, create entries."
+    },
+    {
+      "name": "accountability-check",
+      "schedule": "0 9,13,17 * * 1-5",
+      "timezone": "America/New_York",
+      "model": "google/gemini-2.5-flash",
+      "description": "3x weekday: check open threads for overdue items, flag to principal."
+    }
+  ]
+}
